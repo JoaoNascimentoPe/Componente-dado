@@ -1,5 +1,7 @@
 "use client"
 import { useState } from "react";
+import Dado from './components/Dado'
+import Placar from './components/Placar'
 
 const imagens = [
   "https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png",
@@ -10,14 +12,7 @@ const imagens = [
   "https://upload.wikimedia.org/wikipedia/commons/f/f4/Alea_6.png",
 ];
 
-const Dado = ({ valor }) => {
 
-  return (
-    <div>
-      <img src={imagens[valor]} alt={`Dado ${valor}`} width={100} />
-    </div>
-  );
-};
 
 export default function Home() {
   const [valor, setValor] = useState(1);
@@ -29,9 +24,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center gap-4 mt-10">
-      <Dado valor={valor} />
+      <Dado valor={valor} imagens={imagens}/>
       <button
-        onClick={rolarDado}
+        onClick={this.rolarDado()}
         className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition"
       >
         Rolar Dado
